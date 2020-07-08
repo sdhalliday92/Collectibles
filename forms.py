@@ -3,7 +3,7 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, Length
 
 
-class PostsForm(FlaskForm):
+class CollectibleForm(FlaskForm):
     name = StringField(
         'Name',
         validators=[
@@ -20,4 +20,4 @@ class PostsForm(FlaskForm):
         ]
     )
 
-    submit = SubmitField('Add a collectible')
+    submit = SubmitField('Add Collectible')

@@ -2,7 +2,7 @@ from flask import Flask, redirect, url_for
 from flask import render_template
 from flask_sqlalchemy import SQLAlchemy
 from os import environ
-from forms import PostsForm
+from forms import CollectibleForm
 
 app = Flask(__name__)
 
@@ -22,10 +22,10 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://' + \
 db = SQLAlchemy(app)
 
 
-class Posts(db.Model):
+class Collectibles(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False, unique=True)
-    cat = db.Column(db.String(100), nullable=False, unique=True)
+    cat = db.Column(db.String(100), nullable=False)
 
     def __repr__(self):
         return ''.join(
@@ -39,7 +39,7 @@ class Posts(db.Model):
 @app.route('/')
 @app.route('/home')
 def home():
-    post_data = Posts.query.all()
+    post_data = Collectibles.query.all()
     return render_template('home.html', title='Home', posts=post_data)
 
 
@@ -50,24 +50,33 @@ def about():
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():
-    form = PostsForm()
+    form = CollectibleForm()
     if form.validate_on_submit():
-        post_data = Posts(
-            f_name=form.f_name.data,
-            l_name=form.l_name.data
+        post_data = Collectibles(
+            name=form.name.data,
+            cat=form.cat.data
         )
         db.session.add(post_data)
         db.session.commit()
         return redirect(url_for('home'))
     else:
-        return render_template('post.html', title='Add a post', form=form)
+        return render_template('post.html', title='Add Collectible', form=form)
+
+
+@app.route('/create')
+def create():
+    db.create_all()
+    post = Collectibles(name='Iron Man', cat='Marvel')
+    db.session.add(post)
+    db.session.commit()
+    return redirect(url_for('home'))
 
 
 @app.route('/delete')
 def delete():
-    db.drop_all()  # drops all the schemas
+    db.session.query(Collectibles).delete()
     db.session.commit()
-    return "everything is gone"
+    return redirect(url_for('home'))
 
 
 if __name__ == '__main__':

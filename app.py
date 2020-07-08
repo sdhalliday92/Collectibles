@@ -24,7 +24,7 @@ db = SQLAlchemy(app)
 
 class Collectibles(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False, unique=True)
+    name = db.Column(db.String(100), nullable=False)
     cat = db.Column(db.String(100), nullable=False)
 
     def __repr__(self):
@@ -65,7 +65,8 @@ def add():
 
 @app.route('/delete')
 def delete():
-    db.session.query(Collectibles).delete()
+    db.session.query(Collectibles).delete()  # drops contents of table
+    # db.drop_all()  # drops all the schemas
     db.session.commit()
     return redirect(url_for('home'))
 

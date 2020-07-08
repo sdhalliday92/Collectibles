@@ -40,7 +40,7 @@ class Collectibles(db.Model):
 @app.route('/home')
 def home():
     post_data = Collectibles.query.all()
-    return render_template('home.html', title='Home', posts=post_data)
+    return render_template('home.html', title='Home', collectibles=post_data)
 
 
 @app.route('/about')
@@ -63,18 +63,18 @@ def add():
         return render_template('post.html', title='Add Collectible', form=form)
 
 
-@app.route('/create')
-def create():
-    db.create_all()
-    post = Collectibles(name='Iron Man', cat='Marvel')
-    db.session.add(post)
+@app.route('/delete')
+def delete():
+    db.session.query(Collectibles).delete()
     db.session.commit()
     return redirect(url_for('home'))
 
 
-@app.route('/delete')
-def delete():
-    db.session.query(Collectibles).delete()
+@app.route('/create')
+def create():
+    db.create_all()
+    post = Collectibles(name='Spider Man', cat='Marvel')
+    db.session.add(post)
     db.session.commit()
     return redirect(url_for('home'))
 

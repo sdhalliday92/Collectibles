@@ -3,10 +3,10 @@
 {% block body_content %}
     <h1>HOME</h1>
 
-    {% for post in collectibles %}
+    {% for entry in collectibles %}
         <div>
-            <p><b>Name: </b> {{ post.name }}</p>
-            <p><b>Category: </b> {{ post.cat }}</p>
+            <p><b>Name: </b> {{ entry.name }}</p>
+            <p><b>Category: </b> {{ entry.cat }}</p>
         </div>
     {% endfor %}
 

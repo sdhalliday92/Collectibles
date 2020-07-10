@@ -161,7 +161,8 @@ def add():
     if form.validate_on_submit():
         post_data = Collectibles(
             c_name=form.c_name.data,
-            cat=form.cat.data
+            cat=form.cat.data,
+            user_id=current_user.id
         )
         db.session.add(post_data)
         db.session.commit()

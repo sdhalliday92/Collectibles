@@ -1,11 +1,11 @@
-from flask import Flask, redirect, url_for, render_template
+from flask import Flask, redirect, url_for, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
-from os import environ
-from forms import CollectibleForm, RegistrationForm, LoginForm, UpdateAccountForm
 from flask_login import UserMixin, LoginManager, login_user, logout_user, login_required, current_user
-from datetime import datetime
 from wtforms.validators import ValidationError
+from forms import CollectibleForm, RegistrationForm, LoginForm, UpdateAccountForm
+from os import environ
+from datetime import datetime
 
 
 app = Flask(__name__)
@@ -22,7 +22,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://' + \
                                         ':' + \
                                         environ.get('MYSQL_PORT') + \
                                         '/' + \
-                                        environ.get('MYSQL_DB_NAME')
+                                        environ.get('MYSQL_DB_NAME2')
 
 db = SQLAlchemy(app)
 
@@ -32,7 +32,7 @@ login_manager.login_view = 'login'
 
 class Collectibles(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
+    c_name = db.Column(db.String(100), nullable=False)
     cat = db.Column(db.String(100), nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
@@ -51,7 +51,7 @@ class Users(db.Model, UserMixin):
     last_name = db.Column(db.String(30), nullable=False)
     email = db.Column(db.String(150), nullable=False, unique=True)
     password = db.Column(db.String(250), nullable=False)
-    post = db.relationship('Posts', backref='author', lazy=True)
+    entry = db.relationship('Collectibles', backref='author', lazy=True)
 
     def __repr__(self):
         return ''.join(['UserID: ', str(self.id), '\r\n',
@@ -94,7 +94,7 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        return redirect(url_for('post'))
+        return redirect(url_for('home'))
 
     return render_template('register.html', title='Register', form=form)
 
@@ -155,11 +155,12 @@ def account_delete():
 
 
 @app.route('/add', methods=['GET', 'POST'])
+@login_required
 def add():
     form = CollectibleForm()
     if form.validate_on_submit():
         post_data = Collectibles(
-            name=form.name.data,
+            c_name=form.c_name.data,
             cat=form.cat.data
         )
         db.session.add(post_data)
@@ -180,8 +181,6 @@ def delete():
 @app.route('/create')
 def create():
     db.create_all()
-    post = Collectibles(name='Spider Man', cat='Marvel')
-    db.session.add(post)
     db.session.commit()
     return redirect(url_for('home'))
 

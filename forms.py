@@ -4,8 +4,8 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo
 
 
 class CollectibleForm(FlaskForm):
-    name = StringField(
-        'Name',
+    c_name = StringField(
+        'Collectible Name',
         validators=[
             DataRequired(),
             Length(min=1, max=100)

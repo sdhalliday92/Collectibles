@@ -5,11 +5,11 @@
         <form method="post" action="">
             {{ form.hidden_tag() }}
             <div class="form-group">
-                {{ form.name.label }}
-                {{ form.name }}
-                {% if form.name.errors %}
+                {{ form.c_name.label }}
+                {{ form.c_name }}
+                {% if form.c_name.errors %}
                     <div class="error">
-                        {% for error in form.name.errors %}
+                        {% for error in form.c_name.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>

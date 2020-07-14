@@ -1,19 +1,17 @@
 {% extends "layout.html" %}
 
 {% block body_content %}
-    <h1>HOME</h1>
+    <h1>HOME PAGE</h1>
 
     {% for entry in collectibles %}
         <div>
+            {% if current_user.is_authenticated == True %}
             <p><b>Collectible Name: </b> {{ entry.c_name }}</p>
             <p><b>Category: </b> {{ entry.cat }}</p>
-                {% if current_user.is_authenticated == True %}
                     <form action="{{ url_for('updatecollectible', update=entry.id) }}">
                         <button type="submit">Update</button>
                     </form>
-                {% endif %}
         <br>
-                {% if current_user.is_authenticated == True %}
                     <form action="{{ url_for('deletecollectible', delete=entry.id) }}">
                         <button type="submit">Delete</button>
                     </form>

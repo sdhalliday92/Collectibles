@@ -41,7 +41,7 @@ class Collectibles(db.Model):
     def __repr__(self):
         return ''.join([
             'User ID: ', self.user_id, '\r\n',
-            'Name: ', self.name, '\r\n', self.cat
+            'Name: ', self.c_name, '\r\n', self.cat
         ])
 
 
@@ -177,12 +177,12 @@ def updatecollectible(update):
     form = UpdateCollectibleForm()
     collectibleupdate = Collectibles.query.filter_by(id=update).first()
     if form.validate_on_submit():
-        collectibleupdate.name = form.c_name.data
+        collectibleupdate.c_name = form.c_name.data
         collectibleupdate.cat = form.cat.data
         db.session.commit()
         return redirect(url_for('home'))
     elif request.method == 'GET':
-        form.c_name = collectibleupdate.name
+        form.c_name = collectibleupdate.c_name
         form.cat = collectibleupdate.cat
     return render_template('updatecollectible.html', title='Update Collectible', form=form)
 

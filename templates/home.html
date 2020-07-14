@@ -7,6 +7,17 @@
         <div>
             <p><b>Collectible Name: </b> {{ entry.c_name }}</p>
             <p><b>Category: </b> {{ entry.cat }}</p>
+                {% if current_user.is_authenticated == True %}
+                    <form action="{{ url_for('updatecollectible', update=entry.id) }}">
+                        <button type="submit">Update</button>
+                    </form>
+                {% endif %}
+        <br>
+                {% if current_user.is_authenticated == True %}
+                    <form action="{{ url_for('deletecollectible', delete=entry.id) }}">
+                        <button type="submit">Delete</button>
+                    </form>
+                {% endif %}
         </div>
     {% endfor %}
 

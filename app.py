@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import UserMixin, LoginManager, login_user, logout_user, login_required, current_user
 from wtforms.validators import ValidationError
-from forms import CollectibleForm, RegistrationForm, LoginForm, UpdateAccountForm
+from forms import CollectibleForm, RegistrationForm, LoginForm, UpdateAccountForm, UpdateCollectibleForm
 from os import environ
 from datetime import datetime
 
@@ -154,7 +154,7 @@ def account_delete():
     return redirect(url_for('register'))
 
 
-@app.route('/add', methods=['GET', 'POST'])
+@app.route('/addcollectible', methods=['GET', 'POST'])
 @login_required
 def add():
     form = CollectibleForm()
@@ -168,7 +168,32 @@ def add():
         db.session.commit()
         return redirect(url_for('home'))
     else:
-        return render_template('add_entry.html', title='Add Collectible', form=form)
+        return render_template('addcollectible.html', title='Add Collectible', form=form)
+
+
+@app.route('/updatecollectible/<int:update>', methods=['GET', 'POST'])
+@login_required
+def updatecollectible(update):
+    form = UpdateCollectibleForm()
+    collectibleupdate = Collectibles.query.filter_by(id=update).first()
+    if form.validate_on_submit():
+        collectibleupdate.name = form.c_name.data
+        collectibleupdate.cat = form.cat.data
+        db.session.commit()
+        return redirect(url_for('home'))
+    elif request.method == 'GET':
+        form.c_name = collectibleupdate.name
+        form.cat = collectibleupdate.cat
+    return render_template('updatecollectible.html', title='Update Collectible', form=form)
+
+
+@app.route('/deletecollectible/<int:delete>', methods=["GET", "POST", "DELETE"])
+@login_required
+def deletecollectible(delete):
+    collectibledelete = Collectibles.__table__.delete().where(Collectibles.id == delete)
+    db.session.execute(collectibledelete)
+    db.session.commit()
+    return redirect(url_for('home'))
 
 
 @app.route('/delete')

@@ -11,7 +11,6 @@ class CollectibleForm(FlaskForm):
             Length(min=1, max=100)
         ]
     )
-
     cat = StringField(
         'Category',
         validators=[
@@ -23,6 +22,24 @@ class CollectibleForm(FlaskForm):
     submit = SubmitField('Add Collectible')
 
 
+class UpdateCollectibleForm(FlaskForm):
+    c_name = StringField(
+        'Collectible Name',
+        validators=[
+            DataRequired(),
+            Length(min=1, max=100)
+        ]
+    )
+    cat = StringField(
+        'Category',
+        validators=[
+            DataRequired(),
+            Length(min=1, max=100)
+        ]
+    )
+    submit = SubmitField('Update Collectible')
+
+
 class RegistrationForm(FlaskForm):
     first_name = StringField('First Name',
                              validators=[
@@ -30,7 +47,6 @@ class RegistrationForm(FlaskForm):
                                  Length(min=4, max=30)
                              ]
                              )
-
     last_name = StringField('Last Name',
                             validators=[
                                 DataRequired(),
@@ -79,7 +95,6 @@ class UpdateAccountForm(FlaskForm):
                                  Length(min=4, max=30)
                              ]
                              )
-
     last_name = StringField('Last Name',
                             validators=[
                                 DataRequired(),

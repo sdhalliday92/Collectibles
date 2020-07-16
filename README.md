@@ -81,7 +81,7 @@ The below tech stack was implemented for this project.
 ### **CI Pipeline**
 The below image shows the flow of the app and how the tech stack is used in the Continuous Integration (CI) Pipeline.
 
-![Image of CI Pipeline](https://i.imgur.com/sppwPvJ.png)
+![Image of CI Pipeline](https://i.imgur.com/XtTKaBB.png)
 
 ### **Front End Design**
 The front end design of the app is very basic and is made to be functional.

@@ -84,31 +84,31 @@ IMAGE
 The front end design of the app is very basic and is made to be functional.
 The apps URL will take the user to the Home page.
 
-![Image of Home](https://imgur.com/JdERLlp)
+![Image of Home]([Imgur](https://i.imgur.com/JdERLlp.png))
 
 About page.
 
-![Image of About](https://imgur.com/ISU68dN)
+![Image of About]([Imgur](https://i.imgur.com/ISU68dN.png))
 
 New users need to register.
 
-![Image of Register](https://imgur.com/xFza8WI)
+![Image of Register]([Imgur](https://i.imgur.com/xFza8WI.png))
 
 Users can then use the login page.
 
-![Image of Login](https://imgur.com/pmWHMzA)
+![Image of Login]([Imgur](https://i.imgur.com/pmWHMzA.png))
 
 Logged in users see their content on the home page.
 
-![Image of Logged In Home](https://imgur.com/nzK7ccy)
+![Image of Logged In Home]([Imgur](https://i.imgur.com/nzK7ccy.png))
 
 Logged in users have access to My Account page.
 
-![Image of My Account](https://imgur.com/HCkVsii)
+![Image of My Account]([Imgur](https://i.imgur.com/HCkVsii.png))
 
 Once logged in users can add collectibles to their list.
 
-![Image of Add Collectible](https://imgur.com/WQTxwkn)
+![Image of Add Collectible]([Imgur](https://i.imgur.com/WQTxwkn.png))
 
 
 ### **Risk Assessment**

@@ -61,7 +61,7 @@ IMAGE
 ### **Data**
 It is important to outline what data will be included in the database and how it will all relate. The entity relationship diagram (ERD) below shows this.
 
-IMAGE
+![Image of ERD](https://i.imgur.com/BpNspeC.png)
 
 The ERD shows the relationship between the Collectibles and Users tables.
 
@@ -78,7 +78,7 @@ The below tech stack was implemented for this project.
 ### **CI Pipeline**
 The below image shows the flow of the app and how the tech stack is used in the Continuous Integration (CI) Pipeline.
 
-IMAGE
+![Image of CI Pipeline](https://i.imgur.com/sppwPvJ.png)
 
 ### **Front End Design**
 The front end design of the app is very basic and is made to be functional.
@@ -113,7 +113,7 @@ The apps URL will take the user to the Home page.
 
 ### **Risk Assessment**
 
-IMAGE
+![Image of Risk Assessment](https://i.imgur.com/6fieRm3.png)
 
 ### **Difficulties**
 The main difficulties encountered were ones of my own making, pieces of code missing or references not answered.

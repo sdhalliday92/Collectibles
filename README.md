@@ -56,7 +56,10 @@ The users stories that satisfied the brief were:
 
 The below images show all the user stories created for this app as well as the layout and flow of the AGILE cycle that was implemented throughout.
 
-IMAGE
+![Image of Trello](https://i.imgur.com/4OlAZsg.png)
+
+![Image of Trello2](https://i.imgur.com/Xb3JU74.png)
+
 
 ### **Data**
 It is important to outline what data will be included in the database and how it will all relate. The entity relationship diagram (ERD) below shows this.

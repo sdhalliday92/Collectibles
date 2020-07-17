@@ -84,7 +84,10 @@ The below image shows the flow of the app and how the tech stack is used in the 
 ![Image of CI Pipeline](https://i.imgur.com/XtTKaBB.png)
 
 ### **Front End Design**
-The front end design of the app is very basic and is made to be functional.
+The front end design of the app is very basic and is made to be functional as shown in the wireframe below.
+
+![Image of Wireframe](https://i.imgur.com/MIkgumo.png)
+
 The apps URL will take the user to the Home page.
 
 ![Image of Home](https://i.imgur.com/JdERLlp.png)

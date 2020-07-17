@@ -37,13 +37,8 @@ you will use for you project as well as a detailed Risk Assessment.
 - A functional CRUD application created in Python, following best
 practices and design principles, that meets the requirements set on
 your Kanban Board
-- Fully designed test suites for the application you are creating, as
-well as automated tests for validation of the application. You must
-provide high test coverage in your backend and provide consistent
-reports and evidence to support a TDD approach.
 - A functioning front-end website and integrated API's, using Flask.
-- Code fully integrated into a Version Control System using the
-- Feature-Branch model which will subsequently be built through a CI
+- Code fully integrated into a Version Control System using the Feature-Branch model which will subsequently be built through a CI
 server and deployed to a cloud-based virtual machine.
 
 ### **Functionality**

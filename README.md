@@ -25,8 +25,7 @@ This meant building an app that could take input from a user in order to create,
 
 #### **Minimum Requirements**
 - A Trello board (or equivalent Kanban board tech) with full expansion
-on user stories, use cases and tasks needed to complete the project.
-- It could also provide a record of any issues or risks that you faced
+on user stories, use cases and tasks needed to complete the project. It could also provide a record of any issues or risks that you faced
 creating your project.
 - A relational database used to store data persistently for the
 project, this database needs to have at least 2 tables in it, to

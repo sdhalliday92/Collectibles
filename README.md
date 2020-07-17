@@ -27,18 +27,11 @@ This meant building an app that could take input from a user in order to create,
 - A Trello board (or equivalent Kanban board tech) with full expansion
 on user stories, use cases and tasks needed to complete the project. It could also provide a record of any issues or risks that you faced
 creating your project.
-- A relational database used to store data persistently for the
-project, this database needs to have at least 2 tables in it, to
-demonstrate your understanding, you are also required to model a
-relationship.
-- Clear Documentation from a design phase describing the architecture
-you will use for you project as well as a detailed Risk Assessment.
-- A functional CRUD application created in Python, following best
-practices and design principles, that meets the requirements set on
-your Kanban Board
+- A relational database used to store data persistently for the project, this database needs to have at least 2 tables in it, to demonstrate your understanding, you are also required to model a relationship.
+- Clear Documentation from a design phase describing the architecture you will use for your project as well as a detailed Risk Assessment.
+- A functional CRUD application created in Python, following best practices and design principles, that meets the requirements set on your Kanban Board.
 - A functioning front-end website and integrated API's, using Flask.
-- Code fully integrated into a Version Control System using the Feature-Branch model which will subsequently be built through a CI
-server and deployed to a cloud-based virtual machine.
+- Code fully integrated into a Version Control System using the Feature-Branch model which will subsequently be built through a CI server and deployed to a cloud-based virtual machine.
 
 ### **Functionality**
 To satisfy the brief I designed an app that would allow users to create a list of collectibles that they owned.
